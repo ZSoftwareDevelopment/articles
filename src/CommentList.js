@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 import Comment from "./Comment";
 
-export default class Comments extends Component {
+export default class CommentList extends Component {
   state = {
     isOpen: false
   };
