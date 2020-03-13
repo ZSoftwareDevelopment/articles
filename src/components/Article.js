@@ -3,17 +3,6 @@ import PropTypes from "prop-types";
 import { findDOMNode } from "react-dom";
 import CommentList from "./CommentList";
 
-/*
-we are using PureComponent. But in this case it doesn't work properly
-Because on ArticleList we pass toggleOppen via props
-to avoid this we can put toggleOpenItem (in ArticleList) on li element
-or cache it e.t.c.
-In our current case if we are passing toggleOpenItem as props (toggleOpen)
-  - we create this function every time as component is updating
-  - and every time it's updating we have a new props
-  - this is the cause for PureComponent doesn't work properly
- */
-
 class Article extends PureComponent {
   static propTypes = {
     article: PropTypes.shape({
