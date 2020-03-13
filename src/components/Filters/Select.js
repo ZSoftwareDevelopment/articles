@@ -22,7 +22,7 @@ class SelectFilter extends Component {
       <Select
         options={options}
         value={selected}
-        isMulti={true}
+        isMulti={false}
         onChange={this.handleChange}
       />
     )
