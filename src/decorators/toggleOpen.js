@@ -6,6 +6,18 @@ export default OriginalComponent =>
       isOpen: false
     };
 
+    componentDidMount() {
+      console.log("---", "mounted");
+    }
+
+    componentDidUpdate() {
+      console.log("updating");
+    }
+
+    componentWillUnmount() {
+      console.log("unmounting");
+    }
+
     render() {
       return (
         <OriginalComponent
@@ -25,6 +37,6 @@ export default OriginalComponent =>
     };
 
     getRef = ref => {
-      console.log("---", ref);
+      //console.log("---", ref);
     };
   };
