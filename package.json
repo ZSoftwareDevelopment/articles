@@ -31,6 +31,7 @@
   "dependencies": {
     "react": "^15.5.0",
     "react-default-props": "^1.0.2",
-    "react-dom": "^15.5.0"
+    "react-dom": "^15.5.0",
+    "react-select": "^2.4.4"
   }
 }
