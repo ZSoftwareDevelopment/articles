@@ -1,7 +1,7 @@
 import React, { Component, PureComponent } from "react";
 import PropTypes from "prop-types";
 import { findDOMNode } from "react-dom";
-import CommentList from "./CommentList";
+import CommentList from "../CommentList";
 import { CSSTransitionGroup } from "react-transition-group";
 import "./article.css";
 
