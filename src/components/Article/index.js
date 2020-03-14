@@ -76,7 +76,7 @@ class Article extends PureComponent {
           update
         </button>
         <CommentList
-          comments={article.comments}
+          article={article}
           ref={this.setCommentsRef}
           key={this.state.updateIndex}
         />
