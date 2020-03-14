@@ -34,6 +34,8 @@
     "style-loader": "^0.18.2"
   },
   "dependencies": {
+    "immutable": "^3.8.1",
+    "prop-types": "^15.5.10",
     "react": "^15.5.0",
     "react-day-picker": "^6.0.3",
     "react-default-props": "^1.0.2",
