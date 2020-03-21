@@ -3,7 +3,7 @@ import { mapToArr } from "../helpers"
 
 const filtersGetter = state => state.filters
 const articlesGetter = state => state.articles.entities
-const commentsGetter = state => state.comments
+const commentsGetter = state => state.comments.entities
 const idGetter = (state, props) => props.id
 
 export const filtratedArticlesSelector = createSelector(
@@ -14,8 +14,6 @@ export const filtratedArticlesSelector = createSelector(
       selected,
       dateRange: { from, to }
     } = filters
-
-    console.log("---", "recomputing filters")
 
     return mapToArr(articles).filter(article => {
       const published = Date.parse(article.date)
@@ -29,6 +27,5 @@ export const filtratedArticlesSelector = createSelector(
 
 export const commentSelectorFactory = () =>
   createSelector(commentsGetter, idGetter, (comments, id) => {
-    console.log("commentSelector")
-    return comments[id]
+    return comments.get(id)
   })
