@@ -44,6 +44,7 @@
     "react-select": "^2.4.4",
     "react-transition-group": "^1.2.0",
     "redux": "^3.7.0",
+    "redux-thunk": "^2.2.0",
     "reselect": "^3.0.1"
   }
 }
