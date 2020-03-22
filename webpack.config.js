@@ -14,7 +14,8 @@ module.exports = {
         path: "/api/",
         target: "http://localhost:3001"
       }
-    ]
+    ],
+    historyApiFallback: true
   },
   module: {
     loaders: [
