@@ -10,21 +10,25 @@ import "./article.css"
 
 class Article extends PureComponent {
   static propTypes = {
-    article: PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      title: PropTypes.string.isRequired,
-      text: PropTypes.string
-    }).isRequired,
+    id: PropTypes.string.isRequired,
     isOpen: PropTypes.bool,
-    toggleOpen: PropTypes.func
+    toggleOpen: PropTypes.func,
+    //from connect
+    article: PropTypes.shape({
+      id: PropTypes.string,
+      title: PropTypes.string,
+      text: PropTypes.string
+    })
   }
 
   state = {
-    updateIndex: 0
+    updateIndex: 0,
+    areCommentsOpen: false
   }
 
-  componentWillReceiveProps({ isOpen, loadArticle, article }) {
-    if (isOpen && !article.text && !article.loading) loadArticle(article.id)
+  componentDidMount() {
+    const { loadArticle, article, id } = this.props
+    if (!article || (!article.text && !article.loading)) loadArticle(id)
   }
 
   /*shouldComponentUpdate(nextProps, nextState) {
@@ -37,6 +41,7 @@ class Article extends PureComponent {
 
   render() {
     const { article, isOpen, toggleOpen } = this.props
+    if (!article) return null
     return (
       <div ref={this.setContainerRef}>
         <h3>{article.title}</h3>
@@ -91,8 +96,14 @@ class Article extends PureComponent {
   }
 
   setCommentsRef = ref => {
+    this.comments = ref
     // console.log('---', findDOMNode(ref))
   }
 }
 
-export default connect(null, { deleteArticle, loadArticle })(Article)
+export default connect(
+  (state, ownProps) => ({
+    article: state.articles.entities.get(ownProps.id)
+  }),
+  { deleteArticle, loadArticle }
+)(Article)
