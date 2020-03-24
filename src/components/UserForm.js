@@ -1,12 +1,8 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
+import React, { Component } from "react"
+import PropTypes from "prop-types"
 
 class UserForm extends Component {
-  static propTypes = {};
-
-  state = {
-    username: ""
-  };
+  static propTypes = {}
 
   render() {
     return (
@@ -14,20 +10,18 @@ class UserForm extends Component {
         Name:{" "}
         <input
           type="text"
-          value={this.state.username}
+          value={this.props.value}
           onChange={this.handleUserChange}
         />
       </div>
-    );
+    )
   }
 
   handleUserChange = ev => {
-    if (ev.target.value.length > 10) return;
+    if (ev.target.value.length > 10) return
 
-    this.setState({
-      username: ev.target.value
-    });
-  };
+    this.props.onChange(ev.target.value)
+  }
 }
 
-export default UserForm;
+export default UserForm

@@ -8,7 +8,7 @@ import { deleteArticle, loadArticle } from "../../AC"
 import Loader from "../Loader"
 import "./article.css"
 
-class Article extends PureComponent {
+class Article extends Component {
   static propTypes = {
     id: PropTypes.string.isRequired,
     isOpen: PropTypes.bool,
@@ -102,8 +102,12 @@ class Article extends PureComponent {
 }
 
 export default connect(
-  (state, ownProps) => ({
-    article: state.articles.entities.get(ownProps.id)
-  }),
-  { deleteArticle, loadArticle }
+  (state, ownProps) => {
+    return {
+      article: state.articles.entities.get(ownProps.id)
+    }
+  },
+  { deleteArticle, loadArticle },
+  null,
+  { pure: false }
 )(Article)
