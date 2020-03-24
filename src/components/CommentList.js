@@ -3,6 +3,7 @@ import PropTypes from "prop-types"
 import Loader from "./Loader"
 import Comment from "./Comment"
 import CommentForm from "./CommentForm"
+import LocalizedText from "./LocalizedText"
 import toggleOpen from "../decorators/toggleOpen"
 import { loadArticleComments } from "../AC"
 import { connect } from "react-redux"
@@ -31,7 +32,9 @@ class CommentList extends Component {
     return (
       <div>
         <h3>User: {this.context.user}</h3>
-        <button onClick={toggleOpen}>{text}</button>
+        <button onClick={toggleOpen}>
+          <LocalizedText>{text}</LocalizedText>
+        </button>
         {getBody({ article, isOpen })}
       </div>
     )
@@ -55,7 +58,9 @@ function getBody({
   if (!comments.length)
     return (
       <div>
-        <p>No comments yet</p>
+        <p>
+          <LocalizedText>No comments yet</LocalizedText>
+        </p>
         <CommentForm articleId={id} />
       </div>
     )
