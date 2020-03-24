@@ -101,7 +101,7 @@ export function loadArticle(id) {
             payload: { id, error }
           })
         )
-    }, 1000)
+    }, 500)
   }
 }
 
